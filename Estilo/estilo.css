@@ -1,0 +1,49 @@
+.cuadro{
+ display: inline-block;
+  vertical-align: top;
+    width: 300px;
+}
+.body{
+    background-image: url("../Imagenes/123.png");
+    background-color:#34485E;
+    background-size: 30%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.tittle{
+    text-align: center;
+    color: rgb(238, 243, 247);
+    font-size: 70px;
+}
+
+.descripcion{
+    text-align: center;
+    color: rgb(247, 249, 250);
+    font-size: 20px;
+}
+.caja{ 
+  
+    width: 300px;
+}
+.boton{
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #1883ba;
+    border-radius: 10px;
+    border: 2px solid #030e5c;
+}
+
+.cuadro{
+    display: inline-block;
+    vertical-align: center;
+    width: 300px;
+    padding-top: 30px
+    
+}
+
+.imagenes{
+    text-align: center
+}

@@ -1,0 +1,48 @@
+<html lang="en">
+    <head>
+
+
+        <meta charset="UTF-8">
+        <title>Reto Bunny Inc</title>
+      <link rel="stylesheet" href="Estilo/estilo.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    </head>
+    <body class="body">
+        <h2 class="tittle">Reto Bunny Inc</h2>
+        <p class="descripcion">
+            Por favor  ingrese el título  de una  película para ser consultada por la api de https://www.themoviedb.org 
+         </p>
+        <p align="center"><input class="caja" type="text" id="b"></p>
+        <p align="center"><input class="boton" type="button" id="buscar" value="Buscar"></p>
+        <div class="imagenes" id="imagenes"></div>
+        <script>
+            $(document).on("ready", main);
+            function main() {
+                $("#buscar").on("click", function () {
+                    var texto = "";
+                    var tag = $("#b").val();
+                    $("#imagenes").text("Cargando...");
+                    //como llamar u json
+                    $.getJSON("https://api.themoviedb.org/3/search/multi?api_key=627f5aa49c72d956816a42be38b338cd&language=en_US&query="
+                        + tag , function (datos) {
+                            $.each(datos.results, function (i, item) {
+                            texto += "<div class='cuadro'>";
+                            texto += "<img style='width:80%' src= 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/" + item.poster_path + "' />";
+                            texto += "</div>";
+                        });
+                        $("#imagenes").html(texto);
+                    });
+                });
+            }
+        </script>
+    </body>
+</html>
+ 
